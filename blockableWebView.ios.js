@@ -27,7 +27,7 @@ import React from 'react';
 // var ActivityIndicator = require('ActivityIndicator');
 // var EdgeInsetsPropType = require('EdgeInsetsPropType');
 // var React = require('React');
-var ReactNative = require('react/lib/ReactNative');
+var ReactNative = require('react-native');
 // var StyleSheet = require('StyleSheet');
 // var Text = require('Text');
 // var UIManager = require('UIManager');
@@ -38,13 +38,14 @@ import deprecatedPropType from 'react-native/Libraries/Utilities/deprecatedPropT
 // var deprecatedPropType = require('deprecatedPropType');
 var invariant = require('fbjs/lib/invariant');
 var keyMirror = require('fbjs/lib/keyMirror');
+var ViewPropTypes = require("react-native/Libraries/Components/View/ViewPropTypes")
 import processDecelerationRate from 'react-native/Libraries/Components/ScrollView/processDecelerationRate';
 // var processDecelerationRate = require('processDecelerationRate');
 // var requireNativeComponent = require('requireNativeComponent');
 // var resolveAssetSource = require('resolveAssetSource');
 import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
 
-var PropTypes = React.PropTypes;
+var PropTypes = require("prop-types");
 var BlockableWebViewManager = NativeModules.BlockableWebViewManager;
 
 var BGWASH = 'rgba(255,255,255,0.8)';
@@ -259,7 +260,7 @@ class WebView extends React.Component {
     /**
      * The style to apply to the `WebView`.
      */
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
 
     /**
      * Determines the types of data converted to clickable URLs in the web view’s content.

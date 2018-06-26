@@ -10,26 +10,35 @@
  */
 'use strict';
 
-var EdgeInsetsPropType = require('EdgeInsetsPropType');
-var ActivityIndicator = require('ActivityIndicator');
-var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
-var React = require('React');
-var ReactNative = require('react/lib/ReactNative');
-var ReactNativeViewAttributes = require('ReactNativeViewAttributes');
-var StyleSheet = require('StyleSheet');
-var UIManager = require('UIManager');
-var View = require('View');
+var EdgeInsetsPropType = require('react-native/Libraries/StyleSheet/EdgeInsetsPropType');
+// var ActivityIndicator = require('ActivityIndicator');
+var RCTDeviceEventEmitter = require('react-native/Libraries/EventEmitter/RCTDeviceEventEmitter');
+var React = require('react');
+var ReactNative = require('react-native');
+// var ReactNativeViewAttributes = require('ReactNativeViewAttributes');
+// var StyleSheet = require('StyleSheet');
+// var UIManager = require('UIManager');
+// var View = require('View');
 
-var deprecatedPropType = require('deprecatedPropType');
+import deprecatedPropType from 'react-native/Libraries/Utilities/deprecatedPropType';
 var keyMirror = require('fbjs/lib/keyMirror');
 var merge = require('merge');
-var requireNativeComponent = require('requireNativeComponent');
-var resolveAssetSource = require('resolveAssetSource');
+// var requireNativeComponent = require('requireNativeComponent');
+var resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSource');
 
-var PropTypes = React.PropTypes;
+var PropTypes = require("prop-types");
+var ViewPropTypes = require("react-native/Libraries/Components/View/ViewPropTypes")
 
 var RCT_WEBVIEW_REF = 'webview';
 var WEBVIEW_BLOCKED_EVENT = 'navigationBlocked'
+
+var {
+  ActivityIndicator,
+  StyleSheet,
+  UIManager,
+  View,
+  requireNativeComponent
+} = ReactNative
 
 var WebViewState = keyMirror({
   IDLE: null,
@@ -62,7 +71,7 @@ class WebView extends React.Component {
     onNavigationStateChange: PropTypes.func,
     onContentSizeChange: PropTypes.func,
     startInLoadingState: PropTypes.bool, // force WebView to show loadingView on first load
-    style: View.propTypes.style,
+    style: ViewPropTypes.style,
 
     html: deprecatedPropType(
       PropTypes.string,
