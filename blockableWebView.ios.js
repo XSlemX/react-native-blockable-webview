@@ -134,7 +134,7 @@ class WebView extends React.Component {
   static NavigationType = NavigationType;
 
   static propTypes = {
-    ...View.propTypes,
+    ...ViewPropTypes,
 
     html: deprecatedPropType(
       PropTypes.string,
